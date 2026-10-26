@@ -51,3 +51,10 @@ The SIEM server and endpoint agent have been configured. Threat Hunting displays
 - Add screenshots and investigation notes.
 
 **Note:** This is a personal home lab. Events are investigated for learning purposes; no unauthorized systems are tested.
+## Project Screenshots
+
+### Wazuh SIEM Dashboard
+![Wazuh Dashboard](wazuh-dashboard.png)
+
+### Wazuh Security Events
+![Wazuh Events](wazuh-event.png)
