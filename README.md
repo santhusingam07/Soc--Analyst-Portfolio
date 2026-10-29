@@ -58,3 +58,38 @@ The SIEM server and endpoint agent have been configured. Threat Hunting displays
 
 ### Wazuh Security Events
 ![Wazuh Events](wazuh-event.png)
+
+## Project 2: SSH Failed Login Detection with Wazuh
+
+### Objective
+Detect and investigate SSH login attempts using Wazuh SIEM in a controlled home lab.
+
+### Lab Environment
+- SIEM: Wazuh 4.14.9
+- Server: Ubuntu Linux
+- Monitored Endpoint: Kali Linux
+- Tools: Wazuh Dashboard, SSH, Linux authentication logs
+
+### Implementation
+1. Connected the Kali Linux endpoint to the Wazuh server.
+2. Generated a test SSH login attempt using a non-existent username in my own lab.
+3. Reviewed the resulting security event in Wazuh Threat Hunting.
+4. Examined the event details, including source IP, attempted username, timestamp, rule ID, and severity.
+
+### Investigation Findings
+- Event: SSH attempt to log in using a non-existent user.
+- Rule ID: 5710
+- Severity Level: 5
+- Source IP: 192.168.175.129
+- Attempted Username: invaliduser
+- MITRE ATT&CK: Credential Access — Password Guessing (T1110.001)
+
+### Analyst Conclusion
+Wazuh detected the invalid SSH username attempt and generated an alert. A single event does not confirm a brute-force attack; additional attempts and surrounding logs should be reviewed before classifying it as malicious.
+
+### Evidence
+![SSH Failed Login Event](ssh.failed-event.png)
+
+![SSH Failed Login Details](ssh.failed-login.png)
+
+**Note:** This project was performed in my own authorized home lab for learning purposes.
